@@ -3,6 +3,7 @@ package uz.pdp.dagger2nuntium.ui.fragment.register
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.pdp.dagger2nuntium.R
@@ -24,7 +25,11 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         binding.apply {
             rv.adapter = corouselAdapter
             nextBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+                if (corouselAdapter.n == 2) {
+                    findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+                } else {
+                    Toast.makeText(requireContext(), "You can skip only in the last page", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

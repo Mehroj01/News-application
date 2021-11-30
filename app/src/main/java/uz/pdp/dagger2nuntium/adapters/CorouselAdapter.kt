@@ -10,6 +10,8 @@ import uz.pdp.dagger2nuntium.databinding.ItemCorouselBinding
 class CorouselAdapter(private val list: ArrayList<String>) :
     RecyclerView.Adapter<CorouselAdapter.Vh>() {
 
+     var n: Int = -1
+
     inner class Vh(private val itemCorousel: ItemCorouselBinding) :
         RecyclerView.ViewHolder(itemCorousel.root) {
 
@@ -26,6 +28,7 @@ class CorouselAdapter(private val list: ArrayList<String>) :
 
     override fun onBindViewHolder(holder: Vh, position: Int) {
         holder.onBind(list[position])
+        n = position
     }
 
     override fun getItemCount(): Int = list.size
