@@ -32,4 +32,9 @@ class CorouselAdapter(private val list: ArrayList<String>) :
     }
 
     override fun getItemCount(): Int = list.size
+
+
+    private interface OnItemClickListener{
+        fun onClick(position: Int)
+    }
 }
